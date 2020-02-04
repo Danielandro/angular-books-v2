@@ -1,6 +1,6 @@
 <h1>Good Books</h1>
 
-<div>
+<div class="book-list">
   <app-book-card
     *ngFor="let book of books$ | async; index as i"
     [book]="book"

@@ -1,5 +1,11 @@
-<div>
-  <img src="assets/img_avatar2.png" alt="" />
-  <h3>{{ book.title }}</h3>
-  <p>{{ book.author }}</p>
+<div class="card">
+  <img
+    class="card__img"
+    src="assets/images/book_cover_{{ index }}.jpg"
+    alt="avatar"
+  />
+  <div class="card__details">
+    <h4 class="card__info__header">{{ book.title }}</h4>
+    <p class="card__info__details">{{ book.author }}</p>
+  </div>
 </div>

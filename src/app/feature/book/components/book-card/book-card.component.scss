@@ -1,0 +1,14 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 25%;
+  border-radius: 8px;
+  transition: 0.3s;
+
+  :hover {
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .card__img {
+    width: 100%;
+  }
+}

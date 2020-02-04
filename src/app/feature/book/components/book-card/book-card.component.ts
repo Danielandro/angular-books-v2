@@ -14,6 +14,7 @@ import IBook from "src/app/shared/book";
 })
 export class BookCardComponent implements OnInit {
   @Input() book: IBook;
+  @Input() index: number;
   constructor() {}
 
   ngOnInit() {}

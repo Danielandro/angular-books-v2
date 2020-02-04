@@ -1,0 +1,7 @@
+<h1>Good Books</h1>
+<div *ngFor="let book of books$ | async">
+  <img src="assets/img_avatar2.png" alt="" />
+  <h3>{{ book.title }}</h3>
+  <p>{{ book.author }}</p>
+</div>
+<app-book-card></app-book-card>

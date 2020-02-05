@@ -18,7 +18,13 @@ export class BookListComponent implements OnInit {
     this.books$ = this.bookService.getAllBooks();
   }
 
-  onSearchTermChange(searchTerm: string) {
-    this.books$ = this.bookService.searchByTitle(searchTerm);
+  onSearchTermChange({ searchTerm, searchBy }) {
+    searchBy === "title"
+      ? (this.books$ = this.bookService.searchByTitle(searchTerm))
+      : (this.books$ = this.bookService.searchByAuthor(searchTerm));
+  }
+
+  onSearchByOptionChange(searchByOption: string) {
+    console.log(searchByOption);
   }
 }

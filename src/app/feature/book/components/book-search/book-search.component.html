@@ -13,11 +13,17 @@
       class="searchbox-dropdown--options"
       [class.not-active]="viewSearchOptions"
     >
-      <li (click)="selectSearchBy($event)" class="searchbox-dropdown--option">
-        by title
+      <li
+        (click)="onSearchByChange($event); term.value = ''"
+        class="searchbox-dropdown--option"
+      >
+        title
       </li>
-      <li (click)="selectSearchBy($event)" class="searchbox-dropdown--option">
-        by author
+      <li
+        (click)="onSearchByChange($event); term.value = ''"
+        class="searchbox-dropdown--option"
+      >
+        author
       </li>
     </ul>
   </div>

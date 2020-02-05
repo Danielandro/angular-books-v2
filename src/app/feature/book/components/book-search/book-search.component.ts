@@ -14,24 +14,26 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookSearchComponent implements OnInit {
-  @Output() searchTerm: EventEmitter<string> = new EventEmitter<string>();
+  @Output() searchTerm: EventEmitter<{}> = new EventEmitter<{}>();
+  @Output() searchByOption: EventEmitter<string> = new EventEmitter<string>();
   viewSearchOptions: boolean = true;
-  searchBy: string = "by title";
+  searchBy: string = "title";
   constructor() {}
 
   ngOnInit() {}
 
   onSearchTermChange(searchTerm: string) {
-    this.searchTerm.emit(searchTerm);
+    this.searchTerm.emit({ searchTerm, searchBy: this.searchBy });
   }
 
   toggleSearchOptions() {
     this.viewSearchOptions = !this.viewSearchOptions;
   }
 
-  selectSearchBy(event) {
-    this.toggleSearchOptions();
-    this.searchBy = event.target.innerText;
-    console.log(event.target.innerText);
+  onSearchByChange(event: any) {
+    this.toggleSearchOptions(); // hide dropdown menu
+    this.searchBy = event.target.innerText; // change text to match option
+    // this.searchByOption.emit(event.target.innerText);
+    this.onSearchTermChange("");
   }
 }

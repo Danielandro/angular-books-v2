@@ -23,4 +23,10 @@ export class BookService {
       .get<IBook[]>(this.bookUrl)
       .pipe(map(books => books.filter(book => book.title.includes(title))));
   }
+
+  searchByAuthor(author: string): Observable<IBook[]> {
+    return this.http
+      .get<IBook[]>(this.bookUrl)
+      .pipe(map(books => books.filter(book => book.author.includes(author))));
+  }
 }

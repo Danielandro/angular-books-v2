@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import IBook from "src/app/shared/book";
 import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
 import { BookService } from "src/app/services/book.service";
 
 @Component({

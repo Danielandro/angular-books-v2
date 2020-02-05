@@ -1,4 +1,10 @@
-<h1>Good Books</h1>
+<header class="header">
+  <h1 class="header__text">Good Books</h1>
+  <app-book-search
+    class="header__searchbox"
+    (searchTerm)="onSearchTermChange($event)"
+  ></app-book-search>
+</header>
 
 <div class="book-list">
   <app-book-card

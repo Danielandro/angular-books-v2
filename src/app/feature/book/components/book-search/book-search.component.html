@@ -1,0 +1,36 @@
+<section class="searchbox">
+  <!--   Dropdown   -->
+  <div class="searchbox__dropdown">
+    <div class="searchbox__dropdown--default-option">
+      by title
+    </div>
+    <i
+      (click)="toggleSearchOptions()"
+      class="searchbox__dropdown--select fa fa-caret-down"
+      aria-hidden="true"
+    ></i>
+    <ul
+      class="searchbox-dropdown--options"
+      [class.not-active]="viewSearchOptions"
+    >
+      <li class="searchbox-dropdown--option">by title</li>
+      <li class="searchbox-dropdown--option">by author</li>
+    </ul>
+  </div>
+  <!--   search field   -->
+  <div class="searchbox__search-field">
+    <label for="search-field">Search</label>
+    <input
+      (input)="onSearchTermChange(term.value)"
+      #term
+      id="search-field"
+      type="text"
+      placeholder="search"
+      onfocus="if(this.placeholder == 'search') { this.placholder = ''; }"
+    />
+    <i
+      class="searchbox__search-field--search fa fa-search"
+      aria-hidden="true"
+    ></i>
+  </div>
+</section>

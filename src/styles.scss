@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.min.css";
+* {
+  list-style: none;
+  outline: none;
+}
+
 html,
 body {
   font-family: "Sigmar One", cursive;

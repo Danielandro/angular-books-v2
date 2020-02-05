@@ -5,10 +5,16 @@ import { CommonModule } from "@angular/common";
 
 import { AppComponent } from "./app.component";
 import { BookListComponent } from "./feature/book/pages/book-list/book-list.component";
-import { BookCardComponent } from './feature/book/components/book-card/book-card.component';
+import { BookCardComponent } from "./feature/book/components/book-card/book-card.component";
+import { BookSearchComponent } from "./feature/book/components/book-search/book-search.component";
 
 @NgModule({
-  declarations: [AppComponent, BookListComponent, BookCardComponent],
+  declarations: [
+    AppComponent,
+    BookListComponent,
+    BookCardComponent,
+    BookSearchComponent
+  ],
   imports: [BrowserModule, CommonModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,4 +17,8 @@ export class BookListComponent implements OnInit {
   ngOnInit() {
     this.books$ = this.bookService.getAllBooks();
   }
+
+  onSearchTermChange(searchTerm: string) {
+    this.books$ = this.bookService.searchByTitle(searchTerm);
+  }
 }

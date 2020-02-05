@@ -16,6 +16,7 @@ import {
 export class BookSearchComponent implements OnInit {
   @Output() searchTerm: EventEmitter<string> = new EventEmitter<string>();
   viewSearchOptions: boolean = true;
+  searchBy: string = "by title";
   constructor() {}
 
   ngOnInit() {}
@@ -26,5 +27,11 @@ export class BookSearchComponent implements OnInit {
 
   toggleSearchOptions() {
     this.viewSearchOptions = !this.viewSearchOptions;
+  }
+
+  selectSearchBy(event) {
+    this.toggleSearchOptions();
+    this.searchBy = event.target.innerText;
+    console.log(event.target.innerText);
   }
 }

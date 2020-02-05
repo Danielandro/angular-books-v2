@@ -1,8 +1,8 @@
 <section class="searchbox">
   <!--   Dropdown   -->
   <div class="searchbox__dropdown">
-    <div class="searchbox__dropdown--default-option">
-      by title
+    <div class="searchbox__dropdown--current-option">
+      {{ searchBy }}
     </div>
     <i
       (click)="toggleSearchOptions()"
@@ -13,8 +13,12 @@
       class="searchbox-dropdown--options"
       [class.not-active]="viewSearchOptions"
     >
-      <li class="searchbox-dropdown--option">by title</li>
-      <li class="searchbox-dropdown--option">by author</li>
+      <li (click)="selectSearchBy($event)" class="searchbox-dropdown--option">
+        by title
+      </li>
+      <li (click)="selectSearchBy($event)" class="searchbox-dropdown--option">
+        by author
+      </li>
     </ul>
   </div>
   <!--   search field   -->

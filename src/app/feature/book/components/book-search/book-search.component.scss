@@ -17,14 +17,15 @@
   .searchbox__dropdown--select {
     position: absolute;
     top: 14px;
-    right: 40px;
+    right: 25px;
     color: #5078ef;
   }
 
-  .searchbox__dropdown--default-option {
+  .searchbox__dropdown--current-option {
     text-transform: uppercase;
-    padding: 13px 15px;
+    padding: 13px 24px 13px 15px;
     font-size: 14px;
+    text-align: left;
   }
 
   .searchbox-dropdown--options {

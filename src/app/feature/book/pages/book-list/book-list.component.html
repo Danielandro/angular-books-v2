@@ -9,8 +9,7 @@
 
 <div class="book-list">
   <app-book-card
-    *ngFor="let book of books$ | async; index as i"
+    *ngFor="let book of books$ | async"
     [book]="book"
-    [index]="i + 1"
   ></app-book-card>
 </div>

@@ -18,15 +18,12 @@ export class BookService {
       .pipe(tap(books => console.log(books)));
   }
 
-  searchByTitle(title: string): Observable<IBook[]> {
-    return this.http
-      .get<IBook[]>(this.bookUrl)
-      .pipe(map(books => books.filter(book => book.title.includes(title))));
-  }
-
-  searchByAuthor(author: string): Observable<IBook[]> {
-    return this.http
-      .get<IBook[]>(this.bookUrl)
-      .pipe(map(books => books.filter(book => book.author.includes(author))));
+  searchBooks({ searchTerm, searchBy }): Observable<IBook[]> {
+    return this.http.get<IBook[]>(this.bookUrl).pipe(
+      map(books =>
+        books.filter(book => book[`${searchBy}`].includes(searchTerm))
+      ),
+      tap(console.log)
+    );
   }
 }

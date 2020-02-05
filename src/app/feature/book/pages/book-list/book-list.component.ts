@@ -19,9 +19,7 @@ export class BookListComponent implements OnInit {
   }
 
   onSearchTermChange({ searchTerm, searchBy }) {
-    searchBy === "title"
-      ? (this.books$ = this.bookService.searchByTitle(searchTerm))
-      : (this.books$ = this.bookService.searchByAuthor(searchTerm));
+    this.books$ = this.bookService.searchBooks({ searchTerm, searchBy });
   }
 
   onSearchByOptionChange(searchByOption: string) {

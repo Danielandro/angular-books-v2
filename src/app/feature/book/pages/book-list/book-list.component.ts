@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import IBook from "src/app/shared/book";
 import { Observable } from "rxjs";
 import { BookService } from "src/app/services/book.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-book-list",
@@ -11,7 +12,7 @@ import { BookService } from "src/app/services/book.service";
 export class BookListComponent implements OnInit {
   books$: Observable<IBook[]>;
   allBooks: IBook[];
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService, private router: Router) {}
 
   ngOnInit() {
     this.books$ = this.bookService.getAllBooks();
@@ -23,5 +24,11 @@ export class BookListComponent implements OnInit {
 
   onSearchByOptionChange(searchByOption: string) {
     console.log(searchByOption);
+  }
+
+  onButtonClicked({ bookId, action }) {
+    if (action === "edit") {
+      this.router.navigate(["/books", bookId, "edit"]);
+    }
   }
 }

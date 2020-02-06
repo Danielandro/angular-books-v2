@@ -14,5 +14,6 @@
   <app-book-card
     *ngFor="let book of books$ | async"
     [book]="book"
+    (buttonAction)="onButtonClicked($event)"
   ></app-book-card>
 </div>

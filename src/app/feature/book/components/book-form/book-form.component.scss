@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 30%;
+  height: 150px;
+  padding: 30px;
+
+  .form__field {
+    padding: 10px;
+
+    .form__input {
+      width: 90%;
+      height: 50%;
+      border-radius: 15px;
+      font-size: 1rem;
+      padding-left: 20px;
+      padding-right: 38px;
+    }
+  }
+
+  .form--save {
+    margin: 20px auto;
+    width: 10%;
+    height: 20%;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+}

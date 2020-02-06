@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { BookService } from "src/app/services/book.service";
+import IBook from "src/app/shared/book";
 
 @Component({
   templateUrl: "./book-new.component.html",
@@ -6,7 +9,29 @@ import { Component, OnInit } from "@angular/core";
 })
 export class BookNewComponent implements OnInit {
   formHeader: string = "Add New Book";
-  constructor() {}
+  constructor(
+    private bookService: BookService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
+
+  onBookData({ title, author, imageUrl }) {
+    // convert all to lowercase
+    title = title.trim().toLocaleLowerCase();
+    author = author.trim().toLocaleLowerCase();
+    imageUrl = imageUrl.trim().toLocaleLowerCase();
+
+    // check fields are not empty
+    if (!title || !author || !imageUrl) {
+      return;
+    }
+
+    this.bookService
+      .createBook({ id: 0, title, author, imageUrl } as IBook)
+      .subscribe(res => {
+        this.router.navigate(["/books"]);
+      });
+  }
 }

@@ -23,6 +23,18 @@
       "title": "the witches",
       "author": "roald dahl",
       "imageUrl": "https://img1.od-cdn.com/ImageType-100/0290-1/%7B5E4BA3F3-EB69-4699-A867-D0EC34DEA219%7DImg100.jpg"
+    },
+    {
+      "id": 5,
+      "title": "the road",
+      "author": "cormac mccarthy",
+      "imageUrl": "https://cdn.waterstones.com/bookjackets/large/9781/5098/9781509870639.jpg"
+    },
+    {
+      "id": 6,
+      "title": "the friend: a novel",
+      "author": "sigird nunez",
+      "imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544383660l/43183823._SY475_.jpg"
     }
   ]
 }

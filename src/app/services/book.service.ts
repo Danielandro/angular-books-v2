@@ -10,6 +10,7 @@ import {
   distinctUntilChanged,
   catchError
 } from "rxjs/operators";
+import { ThrowStmt } from "@angular/compiler";
 
 @Injectable({
   providedIn: "root"
@@ -42,6 +43,18 @@ export class BookService {
     );
   }
 
+  createBook(book: IBook): Observable<any> {
+    // generate and set book id
+    this.books$.subscribe(books => {
+      const bookIds = books.map(book => book.id); // array of book ids
+      book.id = this.generateId(bookIds);
+    });
+    // post request with new book
+    return this.http
+      .post(this.bookUrl, book)
+      .pipe(tap(console.log), catchError(this.handleError));
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {
@@ -53,5 +66,9 @@ export class BookService {
     }
     console.log(errorMessage);
     return throwError(errorMessage);
+  }
+
+  private generateId(bookIds): number {
+    return bookIds.length > 0 ? Math.max(...bookIds) + 1 : 1;
   }
 }

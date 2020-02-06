@@ -9,6 +9,8 @@ import { BookListComponent } from "./feature/book/pages/book-list/book-list.comp
 import { BookCardComponent } from "./feature/book/components/book-card/book-card.component";
 import { BookSearchComponent } from "./feature/book/components/book-search/book-search.component";
 import { BookDetailComponent } from "./feature/book/pages/book-detail/book-detail.component";
+import { BookNewComponent } from "./feature/book/pages/book-new/book-new.component";
+import { BookFormComponent } from './feature/book/components/book-form/book-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { BookDetailComponent } from "./feature/book/pages/book-detail/book-detai
     BookListComponent,
     BookCardComponent,
     BookSearchComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BookNewComponent,
+    BookFormComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +29,7 @@ import { BookDetailComponent } from "./feature/book/pages/book-detail/book-detai
     RouterModule.forRoot([
       { path: "books", component: BookListComponent },
       { path: "books/detail/:id", component: BookDetailComponent },
+      { path: "books/new", component: BookNewComponent },
       { path: "", redirectTo: "books", pathMatch: "full" },
       { path: "**", component: BookListComponent }
     ])

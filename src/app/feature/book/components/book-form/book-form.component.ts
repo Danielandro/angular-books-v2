@@ -3,8 +3,10 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Output,
-  EventEmitter
+  EventEmitter,
+  Input
 } from "@angular/core";
+import IBook from "src/app/shared/book";
 
 @Component({
   selector: "app-book-form",
@@ -13,6 +15,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookFormComponent implements OnInit {
+  @Input() book: IBook;
+  @Input() isEdit: boolean = false;
   @Output() bookData: EventEmitter<{}> = new EventEmitter<{}>();
   @Output() navigate: EventEmitter<any> = new EventEmitter<any>();
   constructor() {}

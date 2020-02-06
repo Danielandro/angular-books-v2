@@ -10,7 +10,8 @@ import { BookCardComponent } from "./feature/book/components/book-card/book-card
 import { BookSearchComponent } from "./feature/book/components/book-search/book-search.component";
 import { BookDetailComponent } from "./feature/book/pages/book-detail/book-detail.component";
 import { BookNewComponent } from "./feature/book/pages/book-new/book-new.component";
-import { BookFormComponent } from './feature/book/components/book-form/book-form.component';
+import { BookFormComponent } from "./feature/book/components/book-form/book-form.component";
+import { BookEditComponent } from "./feature/book/pages/book-edit/book-edit.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BookFormComponent } from './feature/book/components/book-form/book-form
     BookSearchComponent,
     BookDetailComponent,
     BookNewComponent,
-    BookFormComponent
+    BookFormComponent,
+    BookEditComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { BookFormComponent } from './feature/book/components/book-form/book-form
       { path: "books", component: BookListComponent },
       { path: "books/detail/:id", component: BookDetailComponent },
       { path: "books/new", component: BookNewComponent },
+      { path: "books/:id/edit", component: BookEditComponent },
       { path: "", redirectTo: "books", pathMatch: "full" },
       { path: "**", component: BookListComponent }
     ])

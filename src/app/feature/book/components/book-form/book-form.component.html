@@ -34,10 +34,17 @@
       placeholder="image-url"
     />
   </label>
-  <button
-    (click)="submitBook(title.value, author.value, imageUrl.value)"
-    class="form--save"
-  >
-    Save
-  </button>
+
+  <div class="form__buttons">
+    <button (click)="goBack()" class="button">
+      Back
+    </button>
+
+    <button
+      (click)="submitBook(title.value, author.value, imageUrl.value)"
+      class="button"
+    >
+      Save
+    </button>
+  </div>
 </section>

@@ -4,6 +4,23 @@
   justify-content: space-between;
   margin: 80px 40px;
   align-items: center;
+
+  &__add-book {
+    margin-left: 50%;
+    color: #9fa3b1;
+    text-transform: uppercase;
+    padding: 13px 24px 13px 15px;
+    font-size: 15px;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+
+    &:hover {
+      color: #6f768d;
+      transform: scale(1.2);
+    }
+  }
 }
 
 .book-list {

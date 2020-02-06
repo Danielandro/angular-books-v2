@@ -14,11 +14,16 @@ import {
 })
 export class BookFormComponent implements OnInit {
   @Output() bookData: EventEmitter<{}> = new EventEmitter<{}>();
+  @Output() navigate: EventEmitter<any> = new EventEmitter<any>();
   constructor() {}
 
   ngOnInit() {}
 
   submitBook(title: string, author: string, imageUrl: string) {
     this.bookData.emit({ title, author, imageUrl });
+  }
+
+  goBack() {
+    this.navigate.emit();
   }
 }

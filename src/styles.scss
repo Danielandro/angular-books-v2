@@ -1,15 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~font-awesome/css/font-awesome.min.css";
 * {
+  font-family: "Sigmar One", cursive;
   list-style: none;
   outline: none;
 }
 
 html,
 body {
-  font-family: "Sigmar One", cursive;
   height: 100%;
   // width: 100%;
   margin: 0;
-  // background-color: rgba(0, 0, 0, 0.5);
+  // background-color: #51fc9b;
 }

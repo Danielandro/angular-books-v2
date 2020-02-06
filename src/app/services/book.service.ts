@@ -29,6 +29,10 @@ export class BookService {
     );
   }
 
+  getBookById(id: number): Observable<IBook> {
+    return this.books$.pipe(map(books => books.find(book => book.id === id)));
+  }
+
   searchBooks({ searchTerm, searchBy }): Observable<IBook[]> {
     return this.books$.pipe(
       map(books =>

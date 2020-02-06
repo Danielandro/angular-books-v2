@@ -3,22 +3,26 @@
     {
       "id": 1,
       "title": "thinking fast and slow",
-      "author": "daniel Kahneman"
+      "author": "daniel Kahneman",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51oXKWrcYYL.jpg"
     },
     {
       "id": 2,
       "title": "the alchemist",
-      "author": "paolo coelho"
+      "author": "paolo coelho",
+      "imageUrl": "https://www.jfdperfsolutions.com/wp-content/uploads/2019/01/0_oGUMQVMVxjXCcS1B.jpg"
     },
     {
       "id": 3,
       "title": "1984",
-      "author": "george orwell"
+      "author": "george orwell",
+      "imageUrl": "https://kbimages1-a.akamaihd.net/f6aa261d-490a-4d21-803c-78f016fd3fea/353/569/90/False/wt1CylKmnDCx5CYVWyQuoA.jpg"
     },
     {
       "id": 4,
       "title": "the witches",
-      "author": "roald dahl"
+      "author": "roald dahl",
+      "imageUrl": "https://img1.od-cdn.com/ImageType-100/0290-1/%7B5E4BA3F3-EB69-4699-A867-D0EC34DEA219%7DImg100.jpg"
     }
   ]
 }

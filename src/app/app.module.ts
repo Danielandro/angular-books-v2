@@ -9,7 +9,6 @@ import { BookListComponent } from "./feature/book/pages/book-list/book-list.comp
 import { BookCardComponent } from "./feature/book/components/book-card/book-card.component";
 import { BookSearchComponent } from "./feature/book/components/book-search/book-search.component";
 import { BookDetailComponent } from "./feature/book/pages/book-detail/book-detail.component";
-import { BookNewComponent } from "./feature/book/pages/book-new/book-new.component";
 import { BookFormComponent } from "./feature/book/components/book-form/book-form.component";
 import { BookEditComponent } from "./feature/book/pages/book-edit/book-edit.component";
 
@@ -20,7 +19,6 @@ import { BookEditComponent } from "./feature/book/pages/book-edit/book-edit.comp
     BookCardComponent,
     BookSearchComponent,
     BookDetailComponent,
-    BookNewComponent,
     BookFormComponent,
     BookEditComponent
   ],

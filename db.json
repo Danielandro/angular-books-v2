@@ -28,13 +28,25 @@
       "id": 5,
       "title": "blood meridian",
       "author": "cormac mccarthy",
-      "imageUrl": "https://images-na.ssl-images-amazon.com/images/i/41fcj%2bfupxl._sx328_bo1,204,203,200_.jpg"
+      "imageUrl": "https://images.penguinrandomhouse.com/cover/9780679641049"
     },
     {
       "id": 6,
       "title": "the friend: a novel",
       "author": "sigird nunez",
       "imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544383660l/43183823._SY475_.jpg"
+    },
+    {
+      "id": 7,
+      "title": "in search of lost time",
+      "author": "marcel proust",
+      "imageUrl": "https://kbimages1-a.akamaihd.net/3122d690-c437-4bd5-be0d-7b99a63aa850/353/569/90/false/swann-s-way-in-search-of-lost-time-volume-1-penguin-classics-deluxe-edition.jpg"
+    },
+    {
+      "id": 8,
+      "title": "to kill a mockingbird",
+      "author": "harper lee",
+      "imageUrl": "https://media.glamour.com/photos/56e1f3c562b398fa64cbd310/master/w_1600%2cc_limit/entertainment-2016-02-07-main.jpg"
     }
   ]
 }

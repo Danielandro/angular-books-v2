@@ -48,14 +48,30 @@ export class BookEditComponent implements OnInit {
     }
 
     if (this.editPage) {
-      this.bookService.updateBook(book).subscribe(res => {
-        this.router.navigate(["/books"]);
-      });
+      this.bookService.updateBook(book).subscribe(
+        book => {
+          console.log("Updating book: ", book);
+        },
+        err => console.log("Error: ", err),
+        () => {
+          this.bookService.reload(); // empty book cache
+          this.router.navigate(["/books"]); // navigate to main page
+        }
+      );
     } else {
-      // create the book
-      this.bookService.createBook(book).subscribe(res => {
-        this.router.navigate(["/books"]);
-      });
+      // set book id
+      book.id = this.bookService.generateId();
+      this.bookService.addBook(book).subscribe(
+        book => {
+          console.log("New book created", book);
+        },
+        err => console.log("error", err),
+        () => {
+          // on subscription completion
+          this.bookService.reload();
+          this.router.navigate(["/books"]);
+        }
+      );
     }
   }
 

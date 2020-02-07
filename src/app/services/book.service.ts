@@ -1,41 +1,49 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
+import { Observable, throwError, Subject } from "rxjs";
 import IBook from "../shared/book";
-import {
-  tap,
-  filter,
-  map,
-  shareReplay,
-  distinctUntilChanged,
-  catchError
-} from "rxjs/operators";
-import { ThrowStmt } from "@angular/compiler";
+import { tap, map, shareReplay, catchError, takeUntil } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class BookService {
   bookUrl: string = "http://localhost:3000/books";
-  books$: Observable<IBook[]> = this.http
-    .get<IBook[]>(this.bookUrl)
-    .pipe(distinctUntilChanged(), shareReplay(1));
+  private bookCache$: Observable<IBook[]>;
+  private destroy$ = new Subject();
+  booksLength: number;
 
   constructor(private http: HttpClient) {}
 
   getAllBooks(): Observable<IBook[]> {
-    return this.books$.pipe(
-      tap(books => console.log(books)),
-      catchError(this.handleError)
+    // if books haven't been cached, get all books
+    if (!this.bookCache$) {
+      console.log("Nothing Cached");
+      this.bookCache$ = this.http.get<IBook[]>(this.bookUrl).pipe(
+        tap(books => {
+          console.log(books);
+          this.booksLength = books.length;
+        }),
+        takeUntil(this.destroy$),
+        shareReplay(1),
+        catchError(this.handleError)
+      );
+    }
+    return this.bookCache$;
+  }
+
+  reload() {
+    this.destroy$.next(); // complete the subscription
+    this.bookCache$ = null; // clear cache
+  }
+  getBookById(id: number): Observable<IBook> {
+    return this.getAllBooks().pipe(
+      map(books => books.find(book => book.id === id))
     );
   }
 
-  getBookById(id: number): Observable<IBook> {
-    return this.books$.pipe(map(books => books.find(book => book.id === id)));
-  }
-
   searchBooks({ searchTerm, searchBy }): Observable<IBook[]> {
-    return this.books$.pipe(
+    return this.getAllBooks().pipe(
       map(books =>
         books.filter(book => book[`${searchBy}`].includes(searchTerm))
       ),
@@ -43,12 +51,7 @@ export class BookService {
     );
   }
 
-  createBook(book: IBook): Observable<any> {
-    // generate and set book id
-    this.books$.subscribe(books => {
-      const bookIds = books.map(book => book.id); // array of book ids
-      book.id = this.generateId(bookIds);
-    });
+  addBook(book: IBook): Observable<any> {
     // post request with new book
     return this.http
       .post(this.bookUrl, book)
@@ -74,7 +77,7 @@ export class BookService {
     return throwError(errorMessage);
   }
 
-  private generateId(bookIds): number {
-    return bookIds.length > 0 ? Math.max(...bookIds) + 1 : 1;
+  generateId(): number {
+    return this.booksLength > 0 ? this.booksLength + 1 : 1;
   }
 }

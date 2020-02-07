@@ -31,7 +31,7 @@ export class BookNewComponent implements OnInit {
     }
 
     this.bookService
-      .createBook({ id: 0, title, author, imageUrl } as IBook)
+      .addBook({ id: 0, title, author, imageUrl } as IBook)
       .subscribe(res => {
         this.router.navigate(["/books"]);
       });

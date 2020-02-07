@@ -3,6 +3,7 @@ import IBook from "src/app/shared/book";
 import { Observable } from "rxjs";
 import { BookService } from "src/app/services/book.service";
 import { Router } from "@angular/router";
+import { distinctUntilChanged, shareReplay, tap } from "rxjs/operators";
 
 @Component({
   selector: "app-book-list",
@@ -15,7 +16,11 @@ export class BookListComponent implements OnInit {
   constructor(private bookService: BookService, private router: Router) {}
 
   ngOnInit() {
-    this.books$ = this.bookService.getAllBooks();
+    this.books$ = this.bookService.getAllBooks().pipe(
+      distinctUntilChanged(),
+      // shareReplay(1),
+      tap(x => console.log("Http request"))
+    );
   }
 
   onSearchTermChange({ searchTerm, searchBy }) {

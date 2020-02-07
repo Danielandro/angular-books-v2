@@ -1,6 +1,7 @@
 <div class="card">
   <img class="card__img" src="{{ book.imageUrl }}" alt="avatar" />
-  <div class="card--hover">
+  <div class="card--hover"></div>
+  <div class="card__info">
     <!-- View details button -->
     <button
       (click)="buttonClicked(book.id, view.value)"
@@ -20,8 +21,6 @@
     >
       Edit Details
     </button>
-  </div>
-  <div class="card__info">
     <h4 class="card__info__header">{{ book.title }}</h4>
     <p class="card__info__details">{{ book.author }}</p>
   </div>

@@ -25,10 +25,6 @@
   .card--hover {
     position: absolute;
     top: 50%;
-
-    .card-link {
-      display: block;
-    }
   }
 
   .card__info {
@@ -36,6 +32,19 @@
     text-align: center;
     width: 10rem;
     margin: 10px auto;
+
+    .card__link {
+      padding: 0.4em 0.5em;
+      border: none;
+      background: none;
+      font-size: 0.7em;
+      font-family: "Open Sans", sans-serif;
+      transition: 0.3s;
+      &:hover {
+        color: rgba(0, 38, 255, 0.527);
+        transform: scale(1.1);
+      }
+    }
 
     .card__info__header {
       text-transform: capitalize;

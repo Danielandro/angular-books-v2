@@ -48,7 +48,7 @@
       [value]="book ? book.imageUrl : ''"
     />
   </label>
-
+  <!-- buttons -->
   <div class="form__buttons">
     <button (click)="goBack()" class="button">
       Back
@@ -58,7 +58,7 @@
       (click)="submitBook(title.value, author.value, imageUrl.value)"
       class="button"
     >
-      Save
+      {{ buttonText }}
     </button>
   </div>
 </section>

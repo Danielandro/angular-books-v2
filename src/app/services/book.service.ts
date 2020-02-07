@@ -55,6 +55,12 @@ export class BookService {
       .pipe(tap(console.log), catchError(this.handleError));
   }
 
+  updateBook(book: IBook): Observable<any> {
+    return this.http
+      .patch(`${this.bookUrl}/${book.id}`, book)
+      .pipe(tap(console.log), catchError(this.handleError));
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {

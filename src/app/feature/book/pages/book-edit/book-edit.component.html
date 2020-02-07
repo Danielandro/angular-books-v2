@@ -1,6 +1,12 @@
 <header class="header">
   <h1 class="header__text">{{ formHeader }}</h1>
 </header>
-<app-book-form [isEdit]="true" (navigate)="goBack()"></app-book-form>
+<app-book-form
+  [isEdit]="editPage"
+  [book]="book$ | async"
+  [buttonText]="buttonFunction"
+  (navigate)="goBack()"
+  (bookData)="onBookData($event)"
+></app-book-form>
 
 <!-- (bookData)="onBookData($event)" (navigate)="goBack()"> -->

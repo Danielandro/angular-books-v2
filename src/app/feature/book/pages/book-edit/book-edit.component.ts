@@ -11,9 +11,9 @@ import { Observable } from "rxjs";
 })
 export class BookEditComponent implements OnInit {
   book$: Observable<IBook>;
-  formHeader: string = "Add New Book";
-  editPage = false;
+  pageTitle: string = "Add New Book";
   buttonFunction: string = "Add Book";
+  editPage = false;
 
   constructor(
     private bookService: BookService,
@@ -24,10 +24,9 @@ export class BookEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      // If an ID has been passed
       if (params.get("id")) {
         this.book$ = this.bookService.getBookById(+params.get("id"));
-        this.formHeader = "Edit Book";
+        this.pageTitle = "Edit Book";
         this.editPage = !this.editPage;
         this.buttonFunction = "Update Book";
         return;
@@ -36,7 +35,7 @@ export class BookEditComponent implements OnInit {
   }
 
   // ADD PAGE: User submits a new book
-  onBookData(book) {
+  onBookData(book: IBook) {
     // convert all to lowercase
     book.title = book.title.trim().toLocaleLowerCase();
     book.author = book.author.trim().toLocaleLowerCase();

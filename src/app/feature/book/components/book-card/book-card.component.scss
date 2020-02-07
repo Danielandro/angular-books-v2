@@ -28,7 +28,7 @@
   }
 
   .card__info {
-    padding: 0 16px;
+    padding: 0 16px 10px 16px;
     text-align: center;
     width: 10rem;
     margin: 0 auto;
@@ -45,6 +45,10 @@
         color: rgba(0, 38, 255, 0.527);
         transform: scale(1.1);
       }
+    }
+
+    .line__short {
+      width: 20%;
     }
 
     .card__info__header {

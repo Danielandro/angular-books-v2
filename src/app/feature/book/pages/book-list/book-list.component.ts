@@ -34,6 +34,8 @@ export class BookListComponent implements OnInit {
   onButtonClicked({ bookId, action }) {
     if (action === "edit") {
       this.router.navigate(["/books", bookId, "edit"]);
+    } else {
+      this.router.navigate(["/books", bookId]);
     }
   }
 }

@@ -1,1 +1,23 @@
-<p>book-detail works!</p>
+<header class="header">
+  <h1 class="header__text">{{ pageTitle }}</h1>
+</header>
+<section *ngIf="book" class="book">
+  <div class="book__image">
+    <img src="{{ book.imageUrl }}" alt="" />
+  </div>
+  <div class="book__details">
+    <h2 class="book__title">{{ book.title }}</h2>
+    <p class="book__preposition">by</p>
+    <h3 class="book__author">{{ book.author }}</h3>
+    <!-- navigation buttons -->
+    <div class="buttons">
+      <button class="button button__back" (click)="goBack()">
+        Back
+      </button>
+
+      <button class="button button__edit" (click)="goToEdit()">
+        Edit Book
+      </button>
+    </div>
+  </div>
+</section>

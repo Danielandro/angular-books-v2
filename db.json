@@ -47,6 +47,12 @@
       "title": "to kill a mockingbird",
       "author": "harper lee",
       "imageUrl": "https://media.glamour.com/photos/56e1f3c562b398fa64cbd310/master/w_1600%2cc_limit/entertainment-2016-02-07-main.jpg"
+    },
+    {
+      "id": 9,
+      "title": "one hundred years of solitude",
+      "author": "gabriel garcia marquez",
+      "imageUrl": "https://mojokstore.com/wp-content/uploads/2016/11/one-hundred-years-of-solitude.jpg"
     }
   ]
 }

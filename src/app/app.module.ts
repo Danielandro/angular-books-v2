@@ -28,8 +28,8 @@ import { BookEditComponent } from "./feature/book/pages/book-edit/book-edit.comp
     HttpClientModule,
     RouterModule.forRoot([
       { path: "books", component: BookListComponent },
-      { path: "books/:id", component: BookDetailComponent },
       { path: "books/new", component: BookEditComponent },
+      { path: "books/:id", component: BookDetailComponent },
       { path: "books/:id/edit", component: BookEditComponent },
       { path: "", redirectTo: "books", pathMatch: "full" },
       { path: "**", component: BookListComponent }

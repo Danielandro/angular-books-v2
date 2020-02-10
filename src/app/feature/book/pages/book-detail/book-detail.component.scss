@@ -12,6 +12,9 @@
 
   &__image {
     height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    perspective: -10rem;
+    transform: translateZ(100px) translateX(-30px);
 
     img {
       height: 100%;

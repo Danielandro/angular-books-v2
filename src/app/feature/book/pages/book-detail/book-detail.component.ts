@@ -11,7 +11,7 @@ import { takeUntil } from "rxjs/operators";
 })
 export class BookDetailComponent implements OnInit, OnDestroy {
   book: IBook;
-  pageTitle = "Book Details";
+  pageTitle = "Book Details...";
   private unsubscribe$ = new Subject<void>();
   constructor(
     private bookService: BookService,

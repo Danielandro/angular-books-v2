@@ -51,6 +51,9 @@ export class BookDetailComponent implements OnInit, OnDestroy {
   toggleSize() {
     this.isBig = !this.isBig;
   }
+
+  fadeIn() {}
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.bookService
@@ -58,6 +61,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(book => (this.book = book));
     });
+    this.fadeIn();
   }
 
   ngOnDestroy() {

@@ -1,5 +1,9 @@
 <header class="header">
-  <h1 [@bigSmall]="isBig ? 'big' : 'small'" class="header__text">
+  <h1
+    [@bigSmall]="isBig ? 'big' : 'small'"
+    (click)="toggleSize()"
+    class="header__text"
+  >
     {{ pageTitle }}
   </h1>
 </header>

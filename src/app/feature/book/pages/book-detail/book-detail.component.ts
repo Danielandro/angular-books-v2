@@ -1,4 +1,11 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import {
+  style,
+  state,
+  transition,
+  animate,
+  trigger
+} from "@angular/animations";
 import IBook from "src/app/shared/book";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable, Subject } from "rxjs";
@@ -7,11 +14,33 @@ import { takeUntil } from "rxjs/operators";
 
 @Component({
   templateUrl: "./book-detail.component.html",
-  styleUrls: ["./book-detail.component.scss"]
+  styleUrls: ["./book-detail.component.scss"],
+  animations: [
+    trigger("bigSmall", [
+      state(
+        "big",
+        style({
+          fontSize: "100px",
+          color: "orange",
+          transform: "translateY: -100px"
+        })
+      ),
+      state(
+        "small",
+        style({
+          height: "2px",
+          color: "green",
+          transform: "translateY: 100px"
+        })
+      ),
+      transition("big <=> small", [animate("1s")])
+    ])
+  ]
 })
 export class BookDetailComponent implements OnInit, OnDestroy {
   book: IBook;
   pageTitle = "Book Details...";
+  isBig = false;
   private unsubscribe$ = new Subject<void>();
   constructor(
     private bookService: BookService,
@@ -19,6 +48,9 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute
   ) {}
 
+  toggleSize() {
+    this.isBig = !this.isBig;
+  }
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.bookService

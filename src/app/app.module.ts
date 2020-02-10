@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from "./app.component";
 import { BookListComponent } from "./feature/book/pages/book-list/book-list.component";
@@ -26,6 +27,7 @@ import { BookEditComponent } from "./feature/book/pages/book-edit/book-edit.comp
     BrowserModule,
     CommonModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: "books", component: BookListComponent },
       { path: "books/new", component: BookEditComponent },
